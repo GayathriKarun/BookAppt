@@ -32,7 +32,7 @@ def RegisterView(request):
               return redirect('register')
 
         context ={'form': form}
-        return render(request,"register.html", context)
+        return render(request,"signup/register.html", context)
     except Exception as e:
         return HttpResponse(e)
 
@@ -51,7 +51,7 @@ def LoginView(request):
                 messages.error(request, "Authentication Failed!")
 
         context = {'form': form}
-        return render(request,"login.html", context)
+        return render(request,"signup/login.html", context)
     except Exception as e:
         return HttpResponse(e)
     
@@ -59,7 +59,8 @@ def LoginView(request):
 @login_required
 def HomeView(request, pk):
     user = User.objects.get(id=pk)
-    return render(request,'home.html',{'user': user})
+
+    return render(request,'blog/home.html',{'user': user})
 
 
 def LogoutView(request):

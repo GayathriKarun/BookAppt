@@ -1,0 +1,13 @@
+{% block content %}
+
+Your appointment has been booked! Thank you for choosing us! Here are the apppointment details:
+
+<div>
+    <span> Doctor Name: {{appt.doctor.first_name}}  {{appt.doctor.last_name}}</span><br>
+    <span> Appointment Start Date and Time: {{appt.startdate}}</span><br>
+    <span> Appointment End Date and Time: {{appt.enddate}}</span><br>
+</div>
+<br> <br>
+<a href="{% url 'profile' userid=user.id %}"><button>My Dashboard</button></button></a>
+{% endblock %}
+  

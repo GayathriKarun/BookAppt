@@ -13,7 +13,7 @@ USERTYPE_CHOICES = (
 class User(AbstractUser):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    profile_pic = models.ImageField(upload_to='static/images/')
+    profile_pic = models.ImageField(upload_to='static/profilepics/')
     username = models.CharField(max_length=100,unique=True)
     email = models.EmailField(unique=True,blank=False)
     address_line1 = models.CharField(max_length=500,blank=True)
@@ -22,6 +22,8 @@ class User(AbstractUser):
     address_pincode = models.IntegerField(null=True)
     user_type= models.CharField(max_length=50,choices=USERTYPE_CHOICES,default='-----')
 
+    class Meta:
+      db_table = 'users'
 
 
 

@@ -1,0 +1,17 @@
+<head>
+  <meta charset="UTF-8">
+  <title>Add Blog</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+<center>
+  <h1> Add Blog </h1>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+      {{form.as_p}}
+    <button type="submit">Add Blog</button>
+    <a class="btn btn-outline-dark" href="{% url 'profile' userid=user.id%}">Go Back</a>
+
+  </form>
+
+</center>

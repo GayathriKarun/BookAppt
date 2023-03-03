@@ -20,3 +20,5 @@ class LoginForm(forms.Form):
     user_type = forms.ChoiceField(choices=USERTYPE_CHOICES,initial='-----')
     username = forms.CharField(max_length=50)
     password = forms.CharField(widget = forms.PasswordInput())
+
+    

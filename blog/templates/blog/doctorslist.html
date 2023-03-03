@@ -1,0 +1,40 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<h1 style="display:inline;">Doctors Available for Consultation</h1>
+<br><br>
+<table class="data-table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Profile Picture
+            </th>
+            <th>
+                Book
+            </th>
+        </tr>
+    </thead>
+
+        {% for doctor in doctors %}
+
+            <tr>
+                <td>
+                    {{doctor.first_name}}  {{doctor.last_name}}
+                </td>
+                <td>
+                    <img id="doc_img" height="50px" width="50px" src="{{doctor.profile_pic.url}}">
+                </td>
+                <td>
+                    <a class="btn btn-info" href="{% url 'bookappt' doctor.id %}"><h5>Book Appointment</h5></a>
+                </td>
+              
+            </tr>
+
+        {% endfor %}
+
+</table>
+  
+       
+{% endblock %}

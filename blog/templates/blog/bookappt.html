@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+    <h1 style="display:inline;">Book Appointment</h1>
+    <br><br>
+    <div class="picker">
+        <form id="picker__confirm" class="picker__confirm" autocomplete="off" method="POST">
+           {% csrf_token %}
+            <div class="picker__component">
+                <p class="picker__label">Speciality</p>
+                {% render_field  form.speciality class+="picker__field" %}
+            </div>
+            <div class="picker__component">
+                <p class="picker__label">Start Time</p>
+                {% render_field  form.startDateTime class+="picker__field" %}
+            </div>
+            <br>
+            <br>
+            <input type="submit" value="Submit" class="picker__button">
+        </form>
+        {% for message in messages %}
+				       <p id="messages">{{message}}</p>
+		{% endfor %}
+    </div>
+{% endblock %}

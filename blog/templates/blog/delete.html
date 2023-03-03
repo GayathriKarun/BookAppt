@@ -1,0 +1,6 @@
+<form method="POST">
+    {% csrf_token %}
+  <h4> Are you sure you want to delete {{obj}}?</h4>
+    <input type="submit" value="Yes"><a href='/'>Cancel</a>
+
+</form>

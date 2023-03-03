@@ -1,0 +1,59 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<h1 style="display:inline;">Blogs Uploaded</h1>
+<br><br>
+<table class="data-table">
+    <thead>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Summary
+            </th>
+            <th>
+                Image
+            </th>
+        </tr>
+    </thead>
+    {% if request.user.user_type == 'Doctor' %}
+        {% for blog in blogs %}
+            <tr>
+                <td>
+                    <a href="{% url 'detail' blog.id %}"><h5>{{blog.title}}</h5></a>
+                </td>
+                <td>
+                    {{blog.summary | truncatewords:15}}
+                </td>
+                <td>
+                    <img id="blog_img" height="50px" width="50px" src="{{blog.img.url}}">
+                </td>
+            </tr>
+
+        {% endfor %}
+        
+    {% else %}
+
+        {% for blog in blogs %}
+            <tr>
+                <td>
+                    <a href="{% url 'detail' blog.id %}"><h5>{{blog.title}}</h5></a>
+                </td>
+                <td>
+                    {{blog.summary | truncatewords:15}}
+                </td>
+                <td>
+                    <img id="blog_img" height="50px" width="50px" src="{{blog.img.url}}">
+                </td>
+            </tr>
+        
+        {% endfor %}
+            
+            
+    {% endif %}
+</table>
+  
+
+
+       
+{% endblock %}

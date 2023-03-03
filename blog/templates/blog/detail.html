@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+   <h2>{{blog.title}}</h2>
+   <img src="{{blog.img.url}}" width="300" height=""300>
+   <p>{{blog.summary}}</p>
+   <p>{{blog.content}}</p>
+   {% if user.user_type == 'Patient' %}
+       <p> Blog Created by: {{blog.user.username}}</p>
+       <a href="{% url 'patientblogs' %}"><button>Go Back</button></button></a>
+   {% else %}
+       <a href="{% url 'doctorblogs' userid=blog.user.id %}"><button>Go Back</button></button></a>
+   {% endif %}
+{% endblock %}
+
